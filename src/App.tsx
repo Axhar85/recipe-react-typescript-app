@@ -14,18 +14,22 @@ function App() {
 
   const search = (event:FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
-    console.log(form);
-    //const input = form.querySelector('#searchText')
+    const form = event.target as HTMLFormElement;
+    const input = form.querySelector('#searchText') as HTMLInputElement;
+    setRecipesSearch(input.value)
   };
 
   useEffect(() => {
     (async () => {
+     
       const query  =  encodeURIComponent(recipesSearch);
-      const response = await searchForRecipes(query);
-      setRecipesFound(response)
+      if (query) {
+        const response = await searchForRecipes(query);
+        setRecipesFound(response)
+      }
+      
     })();
-  });
+  },[recipesSearch]);
 
   return (
     <div className="App">
