@@ -5,7 +5,7 @@ const RecipeComponent = (props: {recipe: IRecipe}) => {
         return (
             <div className="recipe">
                 <div className="title">
-                    <img src={recipe.thumbnail || 'http://localhost:3000/placeholder.jpg'}
+                    <img src={recipe.thumbnail || 'http://localhost:3000/placeholder.jpg'} />
                 </div>
 
             </div>
